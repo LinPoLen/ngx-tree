@@ -8,7 +8,7 @@ import { TreeEvent, TreeNode, TreeTemplateMapping, TreeUIOptions } from '../../m
     selector: 'ngx-tree-node',
     templateUrl: './tree-node.component.html',
     styleUrls: ['./tree-node.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class TreeNodeComponent implements OnInit, OnDestroy {
     @Input() node: TreeNode
@@ -35,6 +35,7 @@ export class TreeNodeComponent implements OnInit, OnDestroy {
             this.operationSub = merge<TreeEvent>(
                 this.node.treeModel.events.expand,
                 this.node.treeModel.events.collapse,
+                this.node.treeModel.events.selection,
                 this.node.treeModel.events.activate,
                 this.node.treeModel.events.deactivate,
                 this.node.treeModel.events.focus,

@@ -67,6 +67,7 @@ export class TreeComponent implements OnChanges, OnDestroy {
 
     @Output() expand = new EventEmitter<TreeEvent>()
     @Output() collapse = new EventEmitter<TreeEvent>()
+    @Output() selection = new EventEmitter<TreeEvent>()
     @Output() toggleExpander = new EventEmitter<TreeEvent>()
     @Output() activate = new EventEmitter<TreeEvent>()
     @Output() deactivate = new EventEmitter<TreeEvent>()

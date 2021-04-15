@@ -4,6 +4,10 @@
                           [options]="options"
                           [template]="templates.expanderTemplate"></ngx-tree-node-expander>
 
+  <mat-pseudo-checkbox [ngStyle]="{margin: '0 4px'}"
+    (click)="toggleChecked($event)"
+    [state]="node._indeterminate ? 'indeterminate' : node._checked ? 'checked' : 'unchecked'"
+  ></mat-pseudo-checkbox>
   <ngx-tree-node-content [node]="node"
                          [index]="index"
                          [options]="options"

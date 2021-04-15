@@ -6,7 +6,7 @@ import { DragAndDropEvent, TreeNode, TreeUIOptions } from '../../models'
     selector: 'ngx-tree-node-drop-slot',
     templateUrl: './tree-node-drop-slot.component.html',
     styleUrls: ['./tree-node-drop-slot.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class TreeNodeDropSlotComponent {
     @Input() node: TreeNode

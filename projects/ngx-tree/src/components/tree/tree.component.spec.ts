@@ -26,7 +26,7 @@ export class FakeTreeNodeChildrenComponent {
 @Component({
     selector: 'ngx-tree-viewport',
     template: '',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class FakeTreeViewportComponent {
     @Input() enable: boolean

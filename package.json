@@ -68,7 +68,7 @@
     "tslint": "^5.9.0",
     "typescript": "~3.5.3",
     "web-animations-js": "^2.3.2",
-    "zone.js": "~0.10.0"
+    "zone.js": "~0.11.4"
   },
   "engines": {
     "node": ">=10.0.0"
@@ -77,5 +77,10 @@
     "scripts": {
       "postbump": "node tools/bump-version.js && git add ."
     }
+  },
+  "dependencies": {
+    "@angular/cdk": "^8.2.0",
+    "@angular/forms": "8.2.2",
+    "@angular/material": "^8.2.0"
   }
 }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { ModuleWithProviders, NgModule } from '@angular/core'
+import { MatCommonModule, MatPseudoCheckboxModule } from '@angular/material/core'
 
 import { TreeLoadingComponent } from './components/tree-loading/tree-loading.component'
 import { TreeNodeChildrenComponent } from './components/tree-node-children/tree-node-children.component'
@@ -18,6 +19,8 @@ import { TreeVirtualScroll, VIRTUAL_SCROLL_NODE_HEIGHT_QUOTA } from './services/
 @NgModule({
     imports: [
         CommonModule,
+        MatCommonModule,
+        MatPseudoCheckboxModule,
     ],
     declarations: [
         TreeLoadingComponent,

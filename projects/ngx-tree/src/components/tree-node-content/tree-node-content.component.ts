@@ -5,7 +5,7 @@ import { TreeNode, TreeUIOptions } from '../../models'
     selector: 'ngx-tree-node-content',
     templateUrl: './tree-node-content.component.html',
     styleUrls: ['./tree-node-content.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class TreeNodeContentComponent {
     @Input() options: TreeUIOptions

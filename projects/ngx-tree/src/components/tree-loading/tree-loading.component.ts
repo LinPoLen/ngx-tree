@@ -5,7 +5,7 @@ import { TreeNode } from '../../models'
     selector: 'ngx-tree-loading',
     templateUrl: './tree-loading.component.html',
     styleUrls: ['./tree-loading.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class TreeLoadingComponent {
     @Input() template: TemplateRef<any>

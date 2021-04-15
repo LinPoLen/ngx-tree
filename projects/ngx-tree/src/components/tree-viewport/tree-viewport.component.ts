@@ -26,7 +26,7 @@ const DISABLE_ON_SCROLL_CLASS = 'disable-events-on-scroll'
     templateUrl: './tree-viewport.component.html',
     styleUrls: ['./tree-viewport.component.scss'],
     providers: [TreeVirtualScroll],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class TreeViewportComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
     lastScrollTop = 0

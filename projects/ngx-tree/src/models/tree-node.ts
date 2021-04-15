@@ -25,6 +25,62 @@ export class TreeNode {
     loadingChildren = false
     elementRef: ElementRef | null
 
+    _checked = false
+    _indeterminate = false
+
+    get isChecked() {
+        return !this._indeterminate && this._checked
+    }
+
+    set isChecked(value: boolean) {
+        // this._checked = value
+        if (value !== this.isChecked) {
+            // trigger event
+            this.treeModel.fireEvent({ eventName: 'selection' })
+            this.setChecked(value, true)
+        }
+    }
+
+    setChecked(value: boolean, updateParentNode: boolean) {
+        this._checked = value
+        if (value === true) {
+            this._indeterminate = false
+        }
+        if (this.hasChildren && Array.isArray(this.children)) {
+            this.children.forEach((child) => child.setChecked(value, false))
+        }
+        if (updateParentNode) {
+            if (this.parent) {
+                this.parent._updateCheckedState()
+            }
+        }
+    }
+
+    _updateCheckedState() {
+        let checkedCount = 0
+        let unCheckedCount = 0
+        let indeterminate = false
+        if (this.hasChildren) {
+            this.children.forEach(it => {
+                if (it.isChecked) {
+                    checkedCount++
+                } else if (it._indeterminate) {
+                    indeterminate = true
+                } else {
+                    unCheckedCount++
+                }
+            })
+        }
+        if (checkedCount > 0 && unCheckedCount > 0) {
+            indeterminate = true
+        }
+        this._indeterminate = indeterminate
+        this._checked = !indeterminate && checkedCount > 0
+        if (this.parent) {
+            this.parent._updateCheckedState()
+        }
+    }
+
     get isHidden() {
         return this.treeModel.isNodeHidden(this)
     }
@@ -218,7 +274,7 @@ export class TreeNode {
      * @param skipHidden whether to skip hidden nodes
      * @returns previous node.
      */
-    findPreviousNode(skipHidden = false):  TreeNode | null {
+    findPreviousNode(skipHidden = false): TreeNode | null {
         const previousSibling = this.findPreviousSibling(skipHidden)
         if (!previousSibling) {
             return this.parent
@@ -251,6 +307,9 @@ export class TreeNode {
                 if (children) {
                     this.setField('children', children)
                     this.initChildren()
+                    if (this.isChecked) {
+                        this.children.forEach(it => it.setChecked(true, false))
+                    }
                 }
             })
             .then(() => {

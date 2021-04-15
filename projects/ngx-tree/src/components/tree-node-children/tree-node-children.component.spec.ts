@@ -20,7 +20,7 @@ export class FakeTreeNodeComponent {
 @Component({
     selector: 'ngx-tree-loading',
     template: '',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class FakeTreeLoadingComponent {
     @Input() template: TemplateRef<any>

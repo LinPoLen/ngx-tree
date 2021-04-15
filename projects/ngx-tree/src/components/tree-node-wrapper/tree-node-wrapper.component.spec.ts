@@ -20,7 +20,7 @@ export class FakeTreeNodeExpanderComponent {
 @Component({
     selector: 'ngx-tree-node-content',
     template: '',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class FakeTreeNodeContentComponent {
     @Input() options: TreeUIOptions
